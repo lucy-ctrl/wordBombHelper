@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace wordBombHelper
+namespace wordBombHelper.Data
 {
-    public class PlayerDatabase 
+    public class PlayerDatabase
     {
 
         static SQLiteAsyncConnection Database;
@@ -30,7 +30,7 @@ namespace wordBombHelper
 
         public Task<int> SavePlayerAsync(Player player)
         {
-            if(player.ID != 0)
+            if (player.ID != 0)
             {
                 return Database.UpdateAsync(player);
             }
@@ -39,7 +39,14 @@ namespace wordBombHelper
                 return Database.InsertAsync(player);
             }
         }
-    
+
+     
+
+        public Task<int> DeletePlayerAsync(Player player)
+        {
+            return Database.DeleteAsync(player);
+        }
+
 
 
 
