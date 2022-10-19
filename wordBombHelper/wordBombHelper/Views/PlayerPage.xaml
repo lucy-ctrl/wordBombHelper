@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="wordBombHelper.Views.PlayerPage">
+
+    <StackLayout Margin="20,35,20,20">
+
+        <Label Text="Enter up to four players below:"/>
+        <Entry x:Name="playerOneEntry"
+               Placeholder="Player one"
+                />
+        <Button Text="Add player"
+                Clicked="OnPlayerOneClicked"/>
+        <Entry x:Name="playerTwoEntry"
+                Placeholder="Player two"/>
+        <Button Text="Add player"
+                Clicked="OnPlayerTwoClicked"/>
+        <Entry x:Name="playerThreeEntry"
+                Placeholder="Player three"/>
+        <Button Text="Add player"
+                Clicked="OnPlayerThreeClicked"/>
+        <Entry x:Name="playerFourEntry"
+                Placeholder="Player four"/>
+        <Button Text="Add player"
+                Clicked="OnPlayerFourClicked"/>
+
+        <ListView x:Name="allPlayers">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="20,0,0,0"
+                                     Orientation="Horizontal"
+                                     HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding PlayerName}"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding Colour}"
+                                   VerticalTextAlignment="Center"
+                                   TextColor="{Binding Colour}"/>
+                            <Button Text="Remove"
+                                    Clicked="OnRemoveClicked"/>
+
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label x:Name="Helo"/>
+
+    </StackLayout>
+
+</ContentPage>
