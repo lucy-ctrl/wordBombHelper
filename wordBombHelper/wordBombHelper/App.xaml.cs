@@ -14,11 +14,9 @@ namespace wordBombHelper
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new PlayerPage())
-            {
-                BarTextColor = Color.White,
-                BarBackgroundColor = Color.Aquamarine
-            };
+            MainPage = new NavigationPage(new  OpeningPage());
+            //Routing.RegisterRoute(nameof(PlayerPage), typeof(PlayerPage));
+            
         }
 
         protected override void OnStart()

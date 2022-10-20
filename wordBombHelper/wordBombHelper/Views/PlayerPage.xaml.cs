@@ -15,6 +15,8 @@ namespace wordBombHelper.Views
         public PlayerPage()
         {
             InitializeComponent();
+
+
         }
 
             async void OnPlayerOneClicked(object sender, EventArgs e)
@@ -30,8 +32,9 @@ namespace wordBombHelper.Views
 
                     });
 
-                    playerOneEntry.Text = String.Empty;
-
+                    //playerOneEntry.Text = String.Empty;
+                    //playerOneEntry.IsVisible = false;
+                    playerOneAdd.IsEnabled = false;
                     allPlayers.ItemsSource = await database.GetPlayersAsync();
 
                 }
@@ -49,8 +52,8 @@ namespace wordBombHelper.Views
                         Colour = "Orange"
 
                     });
-
-                    playerTwoEntry.Text = String.Empty;
+                    
+                    playerTwoAdd.IsEnabled = false;
                     allPlayers.ItemsSource = await database.GetPlayersAsync();
 
 
@@ -69,7 +72,8 @@ namespace wordBombHelper.Views
                         Colour = "Pink"
 
                     });
-                    playerThreeEntry.Text = String.Empty;
+                    playerThreeAdd.IsEnabled = false;
+                 
 
                     allPlayers.ItemsSource = await database.GetPlayersAsync();
 
@@ -88,7 +92,7 @@ namespace wordBombHelper.Views
                         Colour = "Purple"
 
                     });
-                    playerFourEntry.Text = String.Empty;
+                    playerFourAdd.IsEnabled = false;
                     allPlayers.ItemsSource = await database.GetPlayersAsync();
 
 
@@ -98,12 +102,22 @@ namespace wordBombHelper.Views
             async void OnRemoveClicked(object sender, EventArgs e)
             {
                 var player = (Player)((Button)sender).BindingContext;
+
                 PlayerDatabase database = await PlayerDatabase.Instance;
                 await database.DeletePlayerAsync(player);
+                allPlayers.ItemsSource = await database.GetPlayersAsync();
 
 
                 
 
             }
+
+            async void OnClickedPlay(object sender, EventArgs e)
+        {
+                await Navigation.PushAsync(new GamePage());
+
+        }
+
+
         }
 }

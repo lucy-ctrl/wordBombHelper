@@ -48,6 +48,20 @@ namespace wordBombHelper.Data
         }
 
 
+        public Task<int> DeleteAllPlayersAsync()
+        {
+            return Database.DeleteAllAsync<Player>();
+        }
+
+        public Task<Player> GetAPlayerAsync(int id)
+        {
+            return Database.Table<Player>().Where(i => i.ID == id).FirstOrDefaultAsync();
+        }
+
+        public Task<int> GetNoOfPlayersAsync()
+        {
+            return Database.Table<Player>().CountAsync();
+        }
 
 
     }

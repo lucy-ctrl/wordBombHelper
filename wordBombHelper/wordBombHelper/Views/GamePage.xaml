@@ -4,8 +4,12 @@
              x:Class="wordBombHelper.Views.GamePage">
     
         <StackLayout Margin="20">
-            
-           
-        </StackLayout>
+        <Label
+            x:Name="noOfPlayers"/>
+        <Button
+            Text="Start game"
+            Clicked="onClickedBegin"/>
+
+    </StackLayout>
     
 </ContentPage>

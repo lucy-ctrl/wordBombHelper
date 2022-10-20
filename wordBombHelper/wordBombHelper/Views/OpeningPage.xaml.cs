@@ -10,23 +10,20 @@ using Xamarin.Forms.Xaml;
 namespace wordBombHelper.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GamePage : ContentPage
+    public partial class OpeningPage : ContentPage
     {
-        public GamePage()
+        public OpeningPage()
         {
             InitializeComponent();
-
-
         }
 
-        async void onClickedBegin(Object sender,EventArgs e)
+        async void OnClickedStartNewGame(object sender, EventArgs e)
         {
             PlayerDatabase database = await PlayerDatabase.Instance;
-            Task<int> task2 = database.GetNoOfPlayersAsync();
+            await database.DeleteAllPlayersAsync();
 
-            noOfPlayers.Text = task2.Result.ToString();
+            await Navigation.PushAsync(new PlayerPage());
+
         }
-
-
     }
 }

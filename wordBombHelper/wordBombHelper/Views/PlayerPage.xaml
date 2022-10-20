@@ -9,19 +9,23 @@
         <Entry x:Name="playerOneEntry"
                Placeholder="Player one"
                 />
-        <Button Text="Add player"
+        <Button x:Name="playerOneAdd"
+                Text="Add player"
                 Clicked="OnPlayerOneClicked"/>
         <Entry x:Name="playerTwoEntry"
                 Placeholder="Player two"/>
-        <Button Text="Add player"
+        <Button x:Name="playerTwoAdd"
+                Text="Add player"
                 Clicked="OnPlayerTwoClicked"/>
         <Entry x:Name="playerThreeEntry"
                 Placeholder="Player three"/>
-        <Button Text="Add player"
+        <Button x:Name="playerThreeAdd"
+                Text="Add player"
                 Clicked="OnPlayerThreeClicked"/>
         <Entry x:Name="playerFourEntry"
                 Placeholder="Player four"/>
-        <Button Text="Add player"
+        <Button x:Name="playerFourAdd"
+                Text="Add player"
                 Clicked="OnPlayerFourClicked"/>
 
         <ListView x:Name="allPlayers">
@@ -46,8 +50,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label x:Name="Helo"/>
 
+        <Button Text="Play game!"
+                Clicked="OnClickedPlay"
+                />
     </StackLayout>
 
 </ContentPage>
